@@ -1,10 +1,10 @@
 document.querySelector("#download-btn").addEventListener("click", async function(){
-    let video = decument.querySelector("#video-link").value; 
+    let video = document.querySelector("#video-link").value; 
     if(video.length == 0){
         return;
     }
     try{
-        Document.querySelector(".loader").classList.add("show");
+        document.querySelector(".loader").classList.add("show");
 
         let res = await fetch("/videoInfo?videoURL="+video);
         let data = await res.json();
@@ -23,7 +23,7 @@ document.querySelector("#download-btn").addEventListener("click", async function
 
         notify(`"${filename}" will be downloaded automatically.`);
 
-        document.querySelector("#download-frame").src = `/download?videoURl=${video}&itag=${itag}&filename=${filename}`;
+        document.querySelector("#download-frame").src = `/download?videoURL=${video}&itag=${itag}&filename=${filename}`;
     
     }
         catch(msg){
